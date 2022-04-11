@@ -1,5 +1,8 @@
-﻿using CommanderGQL.Models;
+﻿using CommanderGQL.Data;
+using CommanderGQL.Models;
+using HotChocolate;
 using HotChocolate.Types;
+using System.Linq;
 
 namespace CommanderGQL.GraphQL.Platforms
 {
@@ -11,6 +14,20 @@ namespace CommanderGQL.GraphQL.Platforms
 
             descriptor
                 .Field(p => p.LicenseKey).Ignore();
+
+            descriptor
+                .Field(p => p.Commands)
+                .ResolveWith<Resolvers>(p => p.GetCommands(default!, default!))
+                .UseDbContext<AppDbContext>()
+                .Description("This is the list of available commands fo this platform");
+        }
+
+        private class Resolvers
+        {
+            public IQueryable<Command> GetCommands(Platform platform, [ScopedService] AppDbContext context)
+            {
+                return context.Commands.Where(p => p.PlatformId == platform.Id);
+            }
         }
     }
 }
