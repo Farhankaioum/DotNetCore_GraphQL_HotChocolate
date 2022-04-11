@@ -21,7 +21,7 @@ namespace CommanderGQL.GraphQL.Commands
 
         private class Resolvers
         {
-            public Platform GetPlatform(Command command, [ScopedService] AppDbContext context)
+            public Platform GetPlatform([Parent]Command command, [ScopedService] AppDbContext context)
             {
                 return context.Platforms.FirstOrDefault(p => p.Id == command.PlatformId);
             }
