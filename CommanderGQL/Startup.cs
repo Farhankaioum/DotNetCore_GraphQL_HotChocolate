@@ -29,8 +29,7 @@ namespace CommanderGQL
                 .AddGraphQLServer()
                 .AddQueryType<Query>()
                 .AddType<PlatformType>()
-                .AddType<CommandType>()
-                .AddProjections();
+                .AddType<CommandType>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
