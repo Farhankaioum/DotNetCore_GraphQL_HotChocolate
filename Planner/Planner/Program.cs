@@ -6,7 +6,7 @@ using Planner.Types;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContextFactory<ApplicationDbContext>( options =>
+builder.Services.AddDbContextFactory<ApplicationDbContext>(options =>
     options.UseInMemoryDatabase("BlogsManagement"));
 
 builder.Services.AddInMemorySubscriptions();
