@@ -42,5 +42,41 @@ namespace Planner.Repositories
                 return author;
             }
         }
+
+        public async Task<Author> UpdateAuthor(Author author)
+        {
+            using (var applicationDbContext =
+                _dbContextFactory.CreateDbContext())
+            {
+                var existingAuthor = applicationDbContext.Authors.FirstOrDefault(x => x.Id == author.Id);
+
+                if (existingAuthor == null)
+                    throw new NullReferenceException(nameof(Author));
+
+                    existingAuthor.FirstName = author.FirstName;
+                    existingAuthor.LastName = author.LastName;
+
+                    applicationDbContext.Authors.Update(existingAuthor);
+                    await applicationDbContext.SaveChangesAsync();
+
+                return author;
+            }
+        }
+
+        public async Task<Author> DeleteAuthor(int authorId)
+        {
+            using (var applicationDbContext =  _dbContextFactory.CreateDbContext())
+            {
+                var existingAuthor = await applicationDbContext.Authors.FirstOrDefaultAsync(x => x.Id == authorId);
+
+                if(existingAuthor != null)
+                {
+                    applicationDbContext.Authors.Remove(existingAuthor);
+                    await applicationDbContext.SaveChangesAsync();
+                }
+
+                return existingAuthor;
+            }
+        }
     }
 }
