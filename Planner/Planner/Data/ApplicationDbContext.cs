@@ -10,8 +10,8 @@ namespace Planner.Data
         {
         }
 
-        public DbSet<Author>? Authors { get; set; }
-        public DbSet<BlogPost>? BlogPosts { get; set; }
+        public DbSet<Author> Authors { get; set; } = null!;
+        public DbSet<BlogPost> BlogPosts { get; set; } = null!;
 
         protected override void OnModelCreating (ModelBuilder modelBuilder)
         {
