@@ -9,6 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContextFactory<ApplicationDbContext>( options =>
     options.UseInMemoryDatabase("BlogsManagement"));
 
+builder.Services.AddInMemorySubscriptions();
+
 builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
 builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
 
@@ -16,7 +18,9 @@ builder.Services
         .AddGraphQLServer()
         .AddType<AuthorType>()
         .AddType<BlogPostType>()
-        .AddQueryType<Query>();
+        .AddQueryType<Query>()
+        .AddMutationType<Mutation>()
+        .AddSubscriptionType<Subscription>();
 
 var app = builder.Build();
 
