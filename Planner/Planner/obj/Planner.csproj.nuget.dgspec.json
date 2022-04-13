@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Extras\\dotnet6project\\Planner\\Planner\\Planner.csproj": {}
+    "D:\\Extras\\DotNetCore_GraphQL_HotChocolate\\Planner\\Planner\\Planner.csproj": {}
   },
   "projects": {
-    "D:\\Extras\\dotnet6project\\Planner\\Planner\\Planner.csproj": {
+    "D:\\Extras\\DotNetCore_GraphQL_HotChocolate\\Planner\\Planner\\Planner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Extras\\dotnet6project\\Planner\\Planner\\Planner.csproj",
+        "projectUniqueName": "D:\\Extras\\DotNetCore_GraphQL_HotChocolate\\Planner\\Planner\\Planner.csproj",
         "projectName": "Planner",
-        "projectPath": "D:\\Extras\\dotnet6project\\Planner\\Planner\\Planner.csproj",
+        "projectPath": "D:\\Extras\\DotNetCore_GraphQL_HotChocolate\\Planner\\Planner\\Planner.csproj",
         "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "D:\\Extras\\dotnet6project\\Planner\\Planner\\obj\\",
+        "outputPath": "D:\\Extras\\DotNetCore_GraphQL_HotChocolate\\Planner\\Planner\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,6 +43,16 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "HotChocolate.AspNetCore": {
+              "target": "Package",
+              "version": "[12.7.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
