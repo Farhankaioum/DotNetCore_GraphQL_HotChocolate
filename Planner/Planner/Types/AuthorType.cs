@@ -11,6 +11,7 @@ namespace Planner.Types
             descriptor.Field(a => a.FirstName).Type<StringType>();
             descriptor.Field(a => a.LastName).Type<StringType>();
             descriptor.Field<BlogPostResolver>(b => b.GetBlogPosts(default!, default!));
+                //.Type<ListType<AuthorType>>().Name("GetBlogPosts"); // in this way if not possible to resolve child data then parent data return and error return
         }
     }
 }

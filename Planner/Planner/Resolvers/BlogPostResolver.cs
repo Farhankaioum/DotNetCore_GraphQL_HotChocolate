@@ -13,7 +13,7 @@ namespace Planner.Resolvers
             _blogPostRepository = blogPostRepository;
         }
 
-        public IEnumerable<BlogPost> GetBlogPosts(Author author, IResolverContext ctx)
+        public IEnumerable<BlogPost> GetBlogPosts([Parent] Author author, IResolverContext ctx)
         {
             return _blogPostRepository.GetBlogPosts().Where(b => b.AuthorId == author.Id);
         }

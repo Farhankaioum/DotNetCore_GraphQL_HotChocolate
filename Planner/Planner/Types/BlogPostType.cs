@@ -5,8 +5,7 @@ namespace Planner.Types
 {
     public class BlogPostType : ObjectType<BlogPost>
     {
-        protected override void
-        Configure(IObjectTypeDescriptor<BlogPost> descriptor)
+        protected override void Configure(IObjectTypeDescriptor<BlogPost> descriptor)
         {
             descriptor.Field(b => b.Id).Type<IdType>();
             descriptor.Field(b => b.Title).Type<StringType>();
